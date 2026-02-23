@@ -6,62 +6,126 @@
 <title>Sameer Shafayet | ML Researcher</title>
 
 <style>
+:root {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --accent: #38bdf8;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #0f172a;
-    color: #e2e8f0;
+    background: var(--bg);
+    color: var(--text);
 }
 
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 1px solid #1f2937;
+    z-index: 1000;
+}
+
+nav a {
+    color: var(--muted);
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+/* CONTAINER */
 .container {
     max-width: 1000px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 80px 20px;
 }
 
-h1 {
-    font-size: 42px;
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 48px;
     margin-bottom: 10px;
+    background: linear-gradient(90deg, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-h2 {
-    margin-top: 60px;
-    border-bottom: 1px solid #334155;
-    padding-bottom: 10px;
-}
-
-.subtitle {
-    color: #94a3b8;
+.hero p {
+    color: var(--muted);
     font-size: 18px;
 }
 
-.section {
-    margin-top: 30px;
+/* SECTIONS */
+section {
+    margin-top: 80px;
 }
 
+h2 {
+    font-size: 26px;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+/* CARD */
 .card {
-    background: #1e293b;
+    background: var(--card);
     padding: 25px;
-    border-radius: 12px;
-    margin-top: 20px;
+    border-radius: 14px;
+    margin-bottom: 20px;
     transition: 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    background: #334155;
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    margin-top: 0;
 }
 
 .card a {
+    color: var(--accent);
     text-decoration: none;
-    color: #38bdf8;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-.footer {
-    margin-top: 80px;
+/* SKILLS */
+.skills span {
+    display: inline-block;
+    background: #334155;
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin: 5px 5px 0 0;
+    font-size: 13px;
+}
+
+/* FOOTER */
+footer {
     text-align: center;
-    color: #64748b;
+    margin-top: 100px;
+    padding: 40px 0;
+    color: var(--muted);
     font-size: 14px;
 }
 </style>
@@ -69,27 +133,47 @@ h2 {
 
 <body>
 
+<nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <div class="container">
 
-    <!-- Hero Section -->
-    <h1>Sameer Shafayet</h1>
-    <p class="subtitle">
-        Machine Learning Researcher | Vision-Language Models | Robust AI
-    </p>
-
-    <!-- About -->
-    <h2>About</h2>
-    <div class="section">
-        <p>
-            I work on robust vision-language models, multimodal learning, 
-            and corruption-aware AI systems. My research focuses on improving 
-            model reliability under distribution shifts and real-world noise.
-        </p>
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Sameer Shafayet</h1>
+        <p>Machine Learning Researcher · Vision-Language Models · Robust AI</p>
     </div>
 
-    <!-- Research -->
-    <h2>Research</h2>
-    <div class="section">
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            I work on robust vision-language models, multimodal learning, and
+            corruption-aware AI systems. My research focuses on improving model
+            reliability under distribution shifts and real-world noise.
+        </p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+            <h3>BSc in Computer Science</h3>
+            <p>University Name · Year - Year</p>
+            <p>Focus: Machine Learning, Computer Vision, Artificial Intelligence</p>
+        </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+        <h2>Research Papers</h2>
 
         <div class="card">
             <h3>VLM Denoising for Robust Visual Question Answering</h3>
@@ -97,35 +181,71 @@ h2 {
                 Investigating corruption robustness in Vision–Language Models 
                 and proposing adaptive denoising strategies.
             </p>
-            <a href="/vlm-denoising/">View Project →</a>
+            <a href="/vlm-denoising/">View Project Page →</a>
         </div>
 
-    </div>
+    </section>
 
-    <!-- Skills -->
-    <h2>Skills</h2>
-    <div class="section">
-        <p>
-            Python · PyTorch · OpenCV · Scikit-learn · TensorFlow · Linux · Git · C++ · Java
-        </p>
-    </div>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
 
-    <!-- Contact -->
-    <h2>Contact</h2>
-    <div class="section">
+        <div class="card">
+            <h3>Multimodal Robustness Benchmark</h3>
+            <p>Benchmark suite for evaluating corruption robustness in VLMs.</p>
+        </div>
+
+        <div class="card">
+            <h3>Adversarial Vision Toolkit</h3>
+            <p>Toolkit for testing visual robustness under synthetic noise.</p>
+        </div>
+
+    </section>
+
+    <!-- WORK -->
+    <section id="work">
+        <h2>Work Experience</h2>
+
+        <div class="card">
+            <h3>Research Assistant</h3>
+            <p>Lab / Institution Name · Year</p>
+            <p>Worked on multimodal robustness and large-scale model evaluation.</p>
+        </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills">
+            <span>Python</span>
+            <span>PyTorch</span>
+            <span>TensorFlow</span>
+            <span>OpenCV</span>
+            <span>Scikit-learn</span>
+            <span>Linux</span>
+            <span>Git</span>
+            <span>C++</span>
+            <span>Java</span>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
         <p>Email: your.email@example.com</p>
         <p>
             <a href="https://www.linkedin.com/in/sameer-shafayet-latif" target="_blank">
                 LinkedIn
             </a>
         </p>
-    </div>
-
-    <div class="footer">
-        © 2026 Sameer Shafayet
-    </div>
+    </section>
 
 </div>
+
+<footer>
+    © 2026 Sameer Shafayet
+</footer>
 
 </body>
 </html>
