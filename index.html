@@ -42,6 +42,7 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 14px;
+    transition: 0.3s;
 }
 
 nav a:hover {
@@ -59,6 +60,28 @@ nav a:hover {
 .hero {
     text-align: center;
     padding: 60px 0;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 25px rgba(56,189,248,0.4);
+    transition: 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05);
 }
 
 .hero h1 {
@@ -147,8 +170,14 @@ footer {
 
     <!-- HERO -->
     <div class="hero">
-        <h1>Sameer Shafayet</h1>
-        <p>Machine Learning Researcher · Vision-Language Models · Robust AI</p>
+        <div class="hero-content">
+            <img src="assets/profile.jpg" alt="Sameer Shafayet" class="profile-pic">
+
+            <div>
+                <h1>Sameer Shafayet</h1>
+                <p>Machine Learning Researcher · Vision-Language Models · Robust AI</p>
+            </div>
+        </div>
     </div>
 
     <!-- ABOUT -->
