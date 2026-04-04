@@ -585,19 +585,21 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#hero" class="nav-logo">AC.</a>
+    <a href="#hero" class="nav-logo">Sameer Shafayet Latif</a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+ <!-- HERO -->
   <section id="hero">
     <div class="hero-grid-bg"></div>
+
     <div class="hero-left">
       <div class="hero-tag">Software Engineer & Researcher</div>
       <h1>Building systems<br>that <em>think</em></h1>
@@ -610,42 +612,32 @@
         <a href="#projects" class="btn-outline">See Projects</a>
       </div>
     </div>
+
     <div class="hero-right">
-      <div class="terminal-card">
-        <div class="terminal-header">
-          <div class="dot dot-r"></div>
-          <div class="dot dot-y"></div>
-          <div class="dot dot-g"></div>
-          <span class="terminal-title">profile.json</span>
+      <!-- ── PHOTO UPLOAD ── -->
+      <div class="photo-frame">
+        <img id="photo-display" class="photo-img" src="" alt="Profile photo" style="display:none;" />
+        <div class="photo-placeholder" id="photo-placeholder" onclick="document.getElementById('photo-input').click()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+          </svg>
+          <span>Click to upload<br>your photo</span>
         </div>
-        <div class="terminal-body">
-          <span class="t-comment">// Sameer Shafayet Latif · Software Engineer & Researcher</span><br>
-          {<br>
-          &nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Sameer Shafayet Latif"</span>,<br>
-          &nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"Dhaka, Bangladesh"</span>,<br>
-          &nbsp;&nbsp;<span class="t-key">"focus"</span>: [<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Vision Language Models"</span>,<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Software Testing & System security"</span>,<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"Computer Vision"</span><br>
-          &nbsp;&nbsp;],<br>
-          &nbsp;&nbsp;<span class="t-key">"papers"</span>: <span class="t-val">1</span>,<br>
-          <!-- &nbsp;&nbsp;<span class="t-key">"openSource"</span>: <span class="t-val">true</span>,<br> -->
-          &nbsp;&nbsp;<span class="t-key">"status"</span>: <span class="t-str">"Open to collab"</span><br>
-          }<span class="t-cursor"></span>
-        </div>
+        <input type="file" id="photo-input" accept="image/*" />
       </div>
+      <div class="photo-hint">Supported: JPG · PNG · WEBP</div>
 
       <div class="stats-row">
         <div class="stat-cell">
-          <span class="stat-num">1</span>
+          <span class="stat-num">12</span>
           <div class="stat-label">Papers</div>
         </div>
-        <!-- <div class="stat-cell">
-          <span class="stat-num">8k+</span>
-          <div class="stat-label">GitHub Stars</div>
-        </div> -->
         <div class="stat-cell">
-          <span class="stat-num">4</span>
+          <span class="stat-num">8k+</span>
+          <div class="stat-label">Stars</div>
+        </div>
+        <div class="stat-cell">
+          <span class="stat-num">6</span>
           <div class="stat-label">Years</div>
         </div>
       </div>
