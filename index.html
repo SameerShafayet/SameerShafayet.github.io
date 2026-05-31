@@ -121,9 +121,10 @@ nav {
 }
 
 .avatar {
-  width: 130px; height: 130px; border-radius: 50%; overflow: hidden;
+  width: 130px; height: 130px; border-radius: 50%;
+  object-fit: cover; object-position: center;
   background: linear-gradient(145deg, #c8d9f0 0%, #a8c0e8 50%, #8aabd8 100%);
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
   font-family: var(--serif);
@@ -770,7 +771,7 @@ footer a {
   <aside class="sidebar">
     <div class="avatar-wrap">
       <!-- <div class="avatar"> -->
-        Replace with: <img src="assets/Profile.jpeg" alt="Sameer Shafayet Latif" />
+        <img src="assets/Profile.jpeg" alt="Sameer Shafayet Latif" class="avatar" />
       <!-- </div> -->
     </div>
 
