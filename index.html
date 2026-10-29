@@ -3,32 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sameer Shafayet Latif</title>
+<title>Sameer Shafayet Latif | Researcher &amp; Software Engineer</title>
+<meta name="description" content="Academic profile and engineering projects of Sameer Shafayet Latif. Research in Vision-Language Models (VLMs), multimodal robustness, and software test automation." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inconsolata:wght@400;500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-/* ── RESET & BASE ── */
+/* ── RESET & THEME VARIABLES ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 
 :root {
-  --bg: #f5f4f0;
-  --surface: #faf9f6;
-  --border: #ccc9bf;
-  --border-light: #dedad2;
-  --accent: #1a4a8f;
-  --accent-hover: #0f3068;
-  --accent-light: #e4ecf8;
-  --text: #0f0e0b;
-  --text-secondary: #2e2b22;
-  --text-muted: #5c5849;
-  --tag-bg: #dde6f5;
-  --tag-color: #1a4a8f;
-  --serif: 'Lora', Georgia, serif;
-  --sans: 'Source Sans 3', sans-serif;
-  --mono: 'Inconsolata', monospace;
-  --sidebar-w: 280px;
-  --nav-h: 52px;
+  --bg: #0b0f17;
+  --bg-sidebar: #0e1420;
+  --surface: #111827;
+  --surface-hover: #162032;
+  --surface-alt: #172236;
+  --border: rgba(255, 255, 255, 0.09);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-hover: rgba(96, 165, 250, 0.35);
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --accent-muted: rgba(96, 165, 250, 0.12);
+  --text: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mono: 'JetBrains Mono', SFMono-Regular, Consolas, monospace;
+  --sidebar-w: 285px;
+  --nav-h: 56px;
 }
 
 body {
@@ -37,6 +40,7 @@ body {
   font-family: var(--sans);
   font-weight: 400;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* ── NAVBAR ── */
@@ -44,23 +48,30 @@ nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
-  background: rgba(250,250,248,0.95);
-  backdrop-filter: blur(10px);
+  background: rgba(11, 15, 23, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2.5rem;
+  padding: 0 2rem;
 }
 
 .nav-name {
-  font-family: var(--serif);
-  font-size: 1rem;
+  font-family: var(--sans);
+  font-size: 0.96rem;
   font-weight: 600;
   color: var(--text);
   text-decoration: none;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .nav-links {
@@ -71,23 +82,45 @@ nav {
 
 .nav-links a {
   font-family: var(--sans);
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0 1.1rem;
+  padding: 0 0.95rem;
   height: var(--nav-h);
   display: flex;
   align-items: center;
   border-bottom: 2px solid transparent;
   transition: color 0.18s, border-color 0.18s;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.005em;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
   color: var(--accent);
   border-bottom-color: var(--accent);
+}
+
+.nav-cv-btn {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  color: var(--accent);
+  background: var(--accent-muted);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-cv-btn:hover {
+  background: var(--accent);
+  color: #0b0f17;
+  border-color: var(--accent);
 }
 
 /* ── LAYOUT ── */
@@ -106,41 +139,29 @@ nav {
   height: calc(100vh - var(--nav-h));
   overflow-y: auto;
   border-right: 1px solid var(--border);
-  padding: 2.5rem 1.8rem 2.5rem 2rem;
+  padding: 2.2rem 1.8rem;
   display: flex;
   flex-direction: column;
-  gap: 1.6rem;
-  background: #eeecea;
+  gap: 1.5rem;
+  background: var(--bg-sidebar);
 }
 
 .sidebar::-webkit-scrollbar { width: 4px; }
-.sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
 
 .avatar-wrap {
   display: flex; justify-content: center; align-items: center;
 }
 
 .avatar {
-  width: 130px; height: 130px; border-radius: 50%;
-  object-fit: cover; object-position: center;
-  background: linear-gradient(145deg, #c8d9f0 0%, #a8c0e8 50%, #8aabd8 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--serif);
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: #2d5fa6;
-  border: 3px solid var(--border);
-  letter-spacing: -0.02em;
-  overflow: hidden;
-}
-
-.avatar img {
-  width: 100%;
-  height: 100%;
+  width: 155px;
+  height: 155px;
+  border-radius: 50%;
   object-fit: cover;
+  object-position: center;
+  border: 2px solid rgba(255, 255, 255, 0.12);
   display: block;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar-name {
@@ -148,38 +169,25 @@ nav {
 }
 
 .sidebar-name h1 {
-  font-family: var(--serif);
-  font-size: 1.15rem;
+  font-family: var(--sans);
+  font-size: 1.16rem;
   font-weight: 600;
   color: var(--text);
-  line-height: 1.3;
-  margin-bottom: 0.25rem;
+  line-height: 1.35;
+  margin-bottom: 0.35rem;
+  letter-spacing: -0.015em;
 }
 
 .sidebar-name .title {
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
-  font-style: italic;
-  font-family: var(--serif);
+  font-family: var(--sans);
+  line-height: 1.45;
 }
-
-.sidebar-name .affil {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
-  margin-top: 0.3rem;
-  line-height: 1.4;
-}
-
-.sidebar-name .affil a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-.sidebar-name .affil a:hover { text-decoration: underline; }
 
 .sidebar-divider {
   height: 1px;
-  background: var(--border-light);
+  background: var(--border);
 }
 
 .sidebar-links {
@@ -189,29 +197,39 @@ nav {
 }
 
 .sidebar-links a {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.3rem 0;
-  transition: color 0.15s;
+  gap: 0.65rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 5px;
+  transition: all 0.16s ease;
   font-weight: 400;
 }
 
-.sidebar-links a:hover { color: var(--accent); }
+.sidebar-links a:hover {
+  color: var(--accent);
+  background: rgba(96, 165, 250, 0.08);
+  padding-left: 0.65rem;
+}
 
 .sidebar-links .link-icon {
-  width: 16px;
+  width: 18px;
   text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.7;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.sidebar-links .cv-link {
+  font-weight: 600;
+  color: var(--accent);
 }
 
 .sidebar-contact {
-  font-size: 0.78rem;
-  color: var(--text-secondary);
+  font-size: 0.77rem;
+  color: var(--text-muted);
   font-family: var(--mono);
   line-height: 1.5;
 }
@@ -219,10 +237,10 @@ nav {
 .sidebar-contact strong {
   display: block;
   font-size: 0.68rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
   font-family: var(--sans);
   font-weight: 600;
 }
@@ -232,15 +250,71 @@ nav {
   flex: 1;
   min-width: 0;
   padding: 0 3.5rem 5rem 3.5rem;
-  max-width: 820px;
+  max-width: 860px;
+}
+
+/* ── MOBILE PROFILE (Visible only on <= 860px) ── */
+.mobile-profile {
+  display: none;
+  background: var(--bg-sidebar);
+  border-bottom: 1px solid var(--border);
+  padding: 1.8rem 1.4rem;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.9rem;
+}
+
+.mobile-profile .avatar {
+  width: 120px;
+  height: 120px;
+}
+
+.mobile-profile h1 {
+  font-family: var(--sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.mobile-profile .title {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.mobile-quick-links {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.mobile-quick-btn {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 0.28rem 0.65rem;
+  border-radius: 5px;
+  text-decoration: none;
+  background: var(--surface);
+}
+
+.mobile-quick-btn.primary {
+  background: var(--accent);
+  color: #0b0f17;
+  font-weight: 600;
+  border-color: var(--accent);
 }
 
 /* ── SECTIONS ── */
 .section {
-  padding: 3rem 0 0;
+  padding: 3.2rem 0 0;
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translateY(16px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .section.visible {
@@ -251,18 +325,25 @@ nav {
 .section-header {
   display: flex;
   align-items: baseline;
+  justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.6rem;
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--border);
 }
 
 .section-title {
-  font-family: var(--serif);
-  font-size: 1.4rem;
+  font-family: var(--sans);
+  font-size: 1.28rem;
   font-weight: 600;
   color: var(--text);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+  font-size: 0.8rem;
+  font-family: var(--mono);
+  color: var(--text-muted);
 }
 
 /* ── HOME / BIO SECTION ── */
@@ -270,40 +351,84 @@ nav {
   padding-top: 2.8rem;
 }
 
-.bio-text {
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  max-width: 640px;
+.bio-lead {
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.7;
   font-weight: 400;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
 }
 
-.bio-text p { margin-bottom: 1rem; }
+.bio-text {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  max-width: 720px;
+}
+
+.bio-text p { margin-bottom: 1.05rem; }
 .bio-text p:last-child { margin-bottom: 0; }
 
 .bio-text a {
   color: var(--accent);
   text-decoration: none;
-  border-bottom: 1px solid rgba(45,95,166,0.25);
+  border-bottom: 1px solid rgba(96, 165, 250, 0.3);
   transition: border-color 0.15s;
 }
 
 .bio-text a:hover { border-color: var(--accent); }
 
-.bio-text em {
-  font-style: italic;
+.bio-text strong {
   color: var(--text);
+  font-weight: 600;
+}
+
+.bio-text em {
+  font-style: normal;
+  color: #cbd5e1;
+}
+
+.focus-tags-wrap {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.focus-label {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.focus-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.focus-pill {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: #cbd5e1;
+  padding: 0.22rem 0.65rem;
+  border-radius: 5px;
 }
 
 .bio-collab-note {
-  margin-top: 1.4rem;
+  margin-top: 1.5rem;
   padding: 0.9rem 1.2rem;
-  background: var(--accent-light);
+  background: rgba(96, 165, 250, 0.08);
   border-left: 3px solid var(--accent);
-  border-radius: 0 4px 4px 0;
-  font-size: 0.85rem;
+  border-radius: 0 5px 5px 0;
+  font-size: 0.88rem;
   color: var(--accent-hover);
-  font-style: italic;
 }
 
 /* ── NEWS ── */
@@ -315,9 +440,9 @@ nav {
 
 .news-item {
   display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 0;
-  padding: 0.75rem 0;
+  grid-template-columns: 80px 1fr;
+  gap: 0.8rem;
+  padding: 0.9rem 0;
   border-bottom: 1px solid var(--border-light);
   align-items: baseline;
 }
@@ -326,17 +451,15 @@ nav {
 
 .news-date {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
-  padding-top: 0.05rem;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 .news-body {
   font-size: 0.88rem;
   color: var(--text-secondary);
   line-height: 1.65;
-  font-weight: 400;
 }
 
 .news-body a {
@@ -355,66 +478,56 @@ nav {
   display: inline-block;
   font-size: 0.65rem;
   font-weight: 600;
-  font-family: var(--sans);
-  letter-spacing: 0.07em;
+  font-family: var(--mono);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  padding: 0.1rem 0.45rem;
-  border-radius: 3px;
-  margin-right: 0.3rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  margin-right: 0.4rem;
   vertical-align: middle;
   position: relative;
   top: -1px;
 }
 
-.badge-accept { background: #e8f5ee; color: #1d6b3e; }
-.badge-award  { background: #fef8e7; color: #916800; }
-.badge-talk   { background: #f3eeff; color: #6d37c4; }
-.badge-new    { background: var(--tag-bg); color: var(--accent); }
+.badge-accept { background: rgba(52, 211, 153, 0.15); color: #34d399; }
+.badge-work   { background: rgba(96, 165, 250, 0.15); color: #60a5fa; }
+.badge-edu    { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
 
 /* ── PUBLICATIONS ── */
 .pub-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.6rem;
 }
 
 .pub-item {
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 1.4rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--border-light);
-  transition: background 0.15s;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.4rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
 }
 
-.pub-item:last-child { border-bottom: none; }
-
 .pub-item:hover {
-  background: rgba(45,95,166,0.018);
-  margin: 0 -1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 6px;
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
 }
 
 .pub-thumb {
   width: 140px;
-  height: 100px;
+  height: 105px;
   flex-shrink: 0;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid var(--border);
   overflow: hidden;
-  background: var(--border-light);
+  background: linear-gradient(135deg, #131d2e 0%, #1e293b 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.pub-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
 }
 
 .pub-thumb-placeholder {
@@ -426,156 +539,418 @@ nav {
   justify-content: center;
   gap: 0.3rem;
   font-family: var(--mono);
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.05em;
   text-align: center;
   padding: 0.5rem;
 }
 
 .pub-thumb-placeholder .thumb-icon {
-  font-size: 1.5rem;
-  opacity: 0.3;
+  font-size: 1.6rem;
+  opacity: 0.7;
 }
 
 .pub-body {
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  justify-content: center;
+  gap: 0.45rem;
 }
 
 .pub-venue {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .pub-venue-name {
-  background: var(--tag-bg);
-  color: var(--tag-color);
-  padding: 0.1rem 0.45rem;
-  border-radius: 3px;
+  background: var(--accent-muted);
+  color: var(--accent-hover);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.pub-venue-status {
+  background: rgba(52, 211, 153, 0.12);
+  color: #6ee7b7;
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 0.12rem 0.5rem;
+  border-radius: 4px;
   font-weight: 500;
 }
 
-.pub-venue .pub-award {
-  color: #916800;
-  background: #fef8e7;
-  padding: 0.1rem 0.45rem;
-  border-radius: 3px;
-}
-
 .pub-title {
-  font-family: var(--serif);
-  font-size: 0.97rem;
+  font-family: var(--sans);
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text);
-  line-height: 1.4;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
 }
 
 .pub-authors {
-  font-size: 0.82rem;
+  font-size: 0.84rem;
   color: var(--text-secondary);
   line-height: 1.5;
-  font-weight: 400;
 }
 
 .pub-authors strong {
-  color: var(--text-secondary);
+  color: var(--text);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.4);
 }
 
-.pub-authors a {
-  color: var(--text-secondary);
-  text-decoration: none;
+.pub-note {
+  font-size: 0.79rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
-
-.pub-authors a:hover { color: var(--accent); }
 
 .pub-links {
   display: flex;
-  gap: 0.4rem;
+  gap: 0.45rem;
   flex-wrap: wrap;
-  margin-top: 0.2rem;
+  margin-top: 0.35rem;
 }
 
-.pub-link {
+.pub-link, .pub-toggle-btn {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--accent);
+  background: var(--surface-alt);
   text-decoration: none;
-  padding: 0.15rem 0.55rem;
-  border: 1px solid rgba(45,95,166,0.28);
-  border-radius: 3px;
+  padding: 0.22rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
   transition: all 0.15s;
-  letter-spacing: 0.03em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 
-.pub-link:hover {
+.pub-link:hover, .pub-toggle-btn:hover {
   background: var(--accent);
-  color: white;
+  color: #0b0f17;
   border-color: var(--accent);
 }
 
-/* ── EDUCATION ── */
-.edu-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.pub-toggle-btn.active {
+  background: var(--accent-muted);
+  color: var(--accent);
+  border-color: rgba(96, 165, 250, 0.4);
 }
 
-.edu-item {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 0 1.2rem;
-  padding: 1.1rem 0;
-  border-bottom: 1px solid var(--border-light);
-  align-items: start;
+/* Collapsible drawer for Abstract */
+.pub-drawer {
+  display: none;
+  margin-top: 0.85rem;
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.83rem;
+  line-height: 1.65;
+  border: 1px solid var(--border);
+  background: #0d131f;
 }
 
-.edu-item:last-child { border-bottom: none; }
+.pub-drawer.open {
+  display: block;
+}
 
-.edu-years {
+.pub-abstract-drawer {
+  color: var(--text-secondary);
+  border-left: 3px solid var(--accent);
+}
+
+.pub-abstract-drawer strong {
+  display: block;
   font-family: var(--mono);
   font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
-  padding-top: 0.2rem;
-  line-height: 1.4;
-  letter-spacing: 0.02em;
+  margin-bottom: 0.4rem;
 }
 
-.edu-body {}
+/* ── BIBTEX MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 7, 13, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
 
-.edu-degree {
-  font-family: var(--serif);
-  font-size: 0.97rem;
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  width: 100%;
+  max-width: 620px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(96, 165, 250, 0.12);
+  transform: translateY(14px) scale(0.98);
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+.modal-overlay.active .modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.95rem 1.3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0e1420;
+}
+
+.modal-title {
+  font-family: var(--sans);
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.1rem;
+  letter-spacing: -0.01em;
 }
 
-.edu-inst {
-  font-size: 0.85rem;
+.modal-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.45rem;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+
+.modal-close:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.modal-body {
+  padding: 1.2rem 1.3rem;
+}
+
+.modal-code-wrapper {
+  position: relative;
+  background: #070b12;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 1.1rem;
+}
+
+.modal-copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #0b0f17;
+  background: var(--accent);
+  border: none;
+  padding: 0.32rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.modal-copy-btn:hover {
+  background: var(--accent-hover);
+}
+
+.modal-code-wrapper pre {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: #e2e8f0;
+  overflow-x: auto;
+  padding-right: 5.5rem;
+  white-space: pre;
+}
+
+.modal-code-wrapper pre::-webkit-scrollbar {
+  height: 5px;
+}
+.modal-code-wrapper pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+/* ── PROJECTS ── */
+.project-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  padding: 0.32rem 0.85rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-secondary);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
   color: var(--accent);
-  margin-bottom: 0.2rem;
 }
 
-.edu-inst a {
+.filter-btn.active {
+  background: var(--accent);
+  color: #0b0f17;
+  font-weight: 600;
+  border-color: var(--accent);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.4rem;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
+}
+
+.project-title {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.project-category-badge {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  padding: 0.14rem 0.48rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.cat-research {
+  background: rgba(168, 85, 247, 0.14);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+.cat-qa {
+  background: rgba(56, 189, 248, 0.14);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.project-subtitle {
+  font-size: 0.78rem;
+  font-family: var(--mono);
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 1.1rem;
+}
+
+.project-tag {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  color: #cbd5e1;
+  padding: 0.14rem 0.48rem;
+  border-radius: 4px;
+}
+
+.project-links {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--border-light);
+}
+
+.project-link {
+  font-family: var(--mono);
+  font-size: 0.72rem;
   color: var(--accent);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
 }
 
-.edu-inst a:hover { text-decoration: underline; }
-
-.edu-detail {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
+.project-link:hover {
+  text-decoration: underline;
 }
 
 /* ── EXPERIENCE ── */
@@ -587,9 +962,9 @@ nav {
 
 .exp-item {
   display: grid;
-  grid-template-columns: 72px 1fr;
+  grid-template-columns: 85px 1fr;
   gap: 0 1.2rem;
-  padding: 1.1rem 0;
+  padding: 1.3rem 0;
   border-bottom: 1px solid var(--border-light);
   align-items: start;
 }
@@ -598,88 +973,150 @@ nav {
 
 .exp-years {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.73rem;
   color: var(--text-muted);
   padding-top: 0.2rem;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .exp-role {
-  font-family: var(--serif);
-  font-size: 0.97rem;
+  font-family: var(--sans);
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.15rem;
 }
 
 .exp-org {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--accent);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.4rem;
 }
 
 .exp-org a { color: var(--accent); text-decoration: none; }
 .exp-org a:hover { text-decoration: underline; }
 
 .exp-desc {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+.exp-bullets {
+  margin-top: 0.4rem;
+  padding-left: 1.1rem;
+  list-style-type: square;
+}
+
+.exp-bullets li {
+  margin-bottom: 0.25rem;
+}
+
+/* ── EDUCATION ── */
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.edu-item {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  gap: 0 1.2rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid var(--border-light);
+  align-items: start;
+}
+
+.edu-item:last-child { border-bottom: none; }
+
+.edu-years {
+  font-family: var(--mono);
+  font-size: 0.73rem;
+  color: var(--text-muted);
+  padding-top: 0.2rem;
+  line-height: 1.4;
+}
+
+.edu-degree {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.edu-inst {
+  font-size: 0.86rem;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.edu-inst a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.edu-inst a:hover { text-decoration: underline; }
+
+.edu-detail {
+  font-size: 0.84rem;
   color: var(--text-secondary);
   line-height: 1.6;
 }
 
 /* ── CONTACT ── */
 .contact-block {
-  max-width: 520px;
+  max-width: 620px;
 }
 
 .contact-intro {
-  font-size: 0.95rem;
+  font-size: 0.94rem;
   color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 1.8rem;
-  font-weight: 400;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 0.85rem;
   margin-bottom: 2rem;
 }
 
 .contact-card {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem;
+  gap: 0.85rem;
+  padding: 0.95rem 1.1rem;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 8px;
   text-decoration: none;
   background: var(--surface);
   transition: all 0.18s;
 }
 
 .contact-card:hover {
-  border-color: var(--accent);
-  background: var(--accent-light);
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
 }
 
 .contact-card-icon {
-  font-size: 1.1rem;
-  width: 20px;
+  font-size: 1.15rem;
+  width: 22px;
   text-align: center;
+  color: var(--accent);
 }
 
-.contact-card-text {}
-
 .contact-card-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
   line-height: 1;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .contact-card-value {
@@ -689,38 +1126,60 @@ nav {
 }
 
 .contact-email-box {
-  background: var(--accent-light);
-  border: 1px solid rgba(45,95,166,0.2);
-  border-radius: 6px;
-  padding: 1rem 1.2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.1rem 1.3rem;
   font-family: var(--mono);
   font-size: 0.9rem;
   color: var(--accent);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
-.contact-email-box .label {
+.contact-email-box .email-label {
   font-size: 0.68rem;
   color: var(--text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: var(--sans);
   font-weight: 600;
   display: block;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact-email-copy {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.28rem 0.65rem;
+  background: var(--accent-muted);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  border-radius: 4px;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.contact-email-copy:hover {
+  background: var(--accent);
+  color: #0b0f17;
 }
 
 /* ── FOOTER ── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 1.5rem 2.5rem;
+  padding: 1.6rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.75rem;
-  color: var(--text-secondary);
+  font-size: 0.76rem;
+  color: var(--text-muted);
   font-family: var(--sans);
-  background: var(--surface);
+  background: #090d14;
 }
 
 footer a {
@@ -728,25 +1187,49 @@ footer a {
   text-decoration: none;
 }
 
+footer a:hover {
+  text-decoration: underline;
+}
+
 /* ── RESPONSIVE ── */
-@media (max-width: 800px) {
+@media (max-width: 860px) {
   .sidebar {
     display: none;
   }
+  .mobile-profile {
+    display: flex;
+  }
   .main {
-    padding: 0 1.5rem 4rem;
+    padding: 0 1.6rem 4rem;
+    max-width: 100%;
+  }
+  .projects-grid {
+    grid-template-columns: 1fr;
   }
   .pub-item {
     grid-template-columns: 1fr;
   }
   .pub-thumb {
     width: 100%;
-    height: 140px;
+    height: 120px;
   }
   nav { padding: 0 1.2rem; }
-  .nav-name { font-size: 0.88rem; }
-  .nav-links a { padding: 0 0.7rem; font-size: 0.75rem; }
+  .nav-name { font-size: 0.92rem; }
+  .nav-links a { padding: 0 0.55rem; font-size: 0.76rem; }
   .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 580px) {
+  .nav-links a { padding: 0 0.4rem; font-size: 0.72rem; }
+  .nav-cv-btn { display: none; }
+  .news-item, .exp-item, .edu-item {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+  .news-date, .exp-years, .edu-years {
+    color: var(--accent);
+    font-weight: 500;
+  }
 }
 </style>
 </head>
@@ -755,37 +1238,56 @@ footer a {
 <!-- NAVBAR -->
 <nav>
   <a class="nav-name" href="#home">Sameer Shafayet Latif</a>
-  <ul class="nav-links">
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#news">News</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cv-btn" href="assets/Sameer_CV.pdf" target="_blank">CV ↗</a>
+  </div>
 </nav>
+
+<!-- MOBILE PROFILE HEADER (visible on mobile only) -->
+<header class="mobile-profile">
+  <img src="assets/Profile.jpeg" alt="Sameer Shafayet Latif" class="avatar" />
+  <div>
+    <h1>Sameer Shafayet Latif</h1>
+    <div class="title">CS Graduate · Software Engineer &amp; AI Researcher</div>
+  </div>
+  <div class="mobile-quick-links">
+    <a class="mobile-quick-btn primary" href="assets/Sameer_CV.pdf" target="_blank">CV</a>
+    <a class="mobile-quick-btn" href="https://scholar.google.com/citations?user=vjOxS6sAAAAJ&hl=en" target="_blank">Scholar</a>
+    <a class="mobile-quick-btn" href="https://github.com/SameerShafayet" target="_blank">GitHub</a>
+    <a class="mobile-quick-btn" href="https://www.linkedin.com/in/sameer-shafayet-latif" target="_blank">LinkedIn</a>
+    <a class="mobile-quick-btn" href="mailto:sameershafayet@iut-dhaka.edu">Email</a>
+  </div>
+</header>
 
 <!-- PAGE WRAP -->
 <div class="page-wrap">
 
-  <!-- SIDEBAR -->
+  <!-- SIDEBAR (DESKTOP) -->
   <aside class="sidebar">
     <div class="avatar-wrap">
-      <!-- <div class="avatar"> -->
-        <img src="assets/Profile.jpeg" alt="Sameer Shafayet Latif" class="avatar" />
-      <!-- </div> -->
+      <img src="assets/Profile.jpeg" alt="Sameer Shafayet Latif" class="avatar" />
     </div>
 
     <div class="sidebar-name">
       <h1>Sameer Shafayet Latif</h1>
-      <div class="title">CS Graduate · Software Engineer</div>
-      <div class="affil">
-        <a href="https://www.iutoic-dhaka.edu/">Islamic University of Technology</a><br/>
-      </div>
+      <div class="title">CS Graduate · Software Engineer &amp; AI Researcher</div>
     </div>
 
     <div class="sidebar-divider"></div>
 
     <div class="sidebar-links">
+      <a class="cv-link" href="assets/Sameer_CV.pdf" target="_blank">
+        <span class="link-icon">📄</span> CV
+      </a>
       <a href="mailto:sameershafayet@iut-dhaka.edu">
         <span class="link-icon">✉</span> sameershafayet@iut-dhaka.edu
       </a>
@@ -798,21 +1300,12 @@ footer a {
       <a href="https://www.linkedin.com/in/sameer-shafayet-latif" target="_blank">
         <span class="link-icon">▲</span> LinkedIn
       </a>
-      <!-- <a href="#" target="_blank">
-        <span class="link-icon">✦</span> X / Twitter
-      </a> -->
-      <!-- <a href="#" target="_blank">
-        <span class="link-icon">⊞</span> HuggingFace
-      </a> -->
-      <!-- <a href="#" target="_blank">
-        <span class="link-icon">↓</span> Download CV
-      </a> -->
     </div>
 
     <div class="sidebar-divider"></div>
 
     <div class="sidebar-contact">
-      <strong>Contact</strong>
+      <strong>Direct Contact</strong>
       sameershafayet [at] iut-dhaka [dot] edu
     </div>
   </aside>
@@ -820,102 +1313,85 @@ footer a {
   <!-- MAIN CONTENT -->
   <main class="main">
 
-<!-- HOME -->
-<section class="section" id="home">
-  <div class="bio-text">
-    <p>
-      I am a Computer Science graduate from the
-      <a href="https://www.iutoic-dhaka.edu/">Islamic University of Technology</a>.
-      During my undergraduate studies, I focused on building a well-rounded skill set across
-      software engineering, artificial intelligence, and research.
-    </p>
+    <!-- HOME / BIO -->
+    <section class="section" id="home">
+      <div class="bio-lead">
+        I am a Computer Science graduate from the 
+        <a href="https://www.iutoic-dhaka.edu/" target="_blank">Islamic University of Technology (IUT)</a>, 
+        currently working as an Associate Software Engineer in QA at 
+        <a href="https://therapbd.com/" target="_blank">Therap (BD) Ltd.</a>
+      </div>
 
-    <p>
-      My undergraduate thesis explored <em>Vision-Language Models (VLMs)</em>,
-      <em>multimodal robustness</em>, and <em>modality-specific analysis</em>,
-      with an emphasis on understanding how modern multimodal systems behave under
-      challenging real-world conditions.
-    </p>
+      <div class="bio-text">
+        <p>
+          My work spans the intersection of <strong>applied machine learning research</strong> and 
+          <strong>production-grade software engineering</strong>. On the research side, I focus on 
+          <em>Vision-Language Models (VLMs)</em>, <em>multimodal robustness</em>, and understanding how modern 
+          deep architectures degrade under real-world visual and textual corruptions. My undergraduate research 
+          culminated in peer-reviewed work accepted at <strong>IEEE/CVF WACV 2026</strong>.
+        </p>
 
-    <p>
-      Beyond research, I enjoy exploring emerging technologies, AI tools, and new ideas
-      at the intersection of machine learning and practical applications.
-    </p>
-  </div>
+        <p>
+          On the engineering side, I develop scalable automation test suites, architectural frameworks using 
+          <em>Playwright</em> and <em>Java</em>, and reliable backend testing mechanisms that ensure high fault tolerance 
+          across enterprise cloud platforms.
+        </p>
+      </div>
 
-  <div class="bio-collab-note">
-    I am actively seeking research collaborations in the areas of VLMs, LLMs, and multimodal AI.
-  </div>
-</section>
+      <!-- FOCUS / SKILL PILLS -->
+      <div class="focus-tags-wrap">
+        <div class="focus-label">Research &amp; Technical Domains</div>
+        <div class="focus-pills">
+          <span class="focus-pill">Vision Language Models</span>
+          <span class="focus-pill">Visio-Linguistic Compositionality</span>
+          <span class="focus-pill">VLM Robustness &amp; Evaluation</span>
+          <span class="focus-pill">VLM Interpretability</span>
+          <span class="focus-pill">Test Automation (Playwright / Java)</span>
+        </div>
+      </div>
 
+      <div class="bio-collab-note">
+        ✦ I am actively seeking research collaborations and PhD opportunities in Multimodal AI, Vision-Language Models, and Robust Machine Learning.
+      </div>
+    </section>
 
-    <!-- NEWS -->
-    <!-- <section class="section" id="news">
+    <!-- RECENT NEWS -->
+    <section class="section" id="news">
       <div class="section-header">
         <div class="section-title">Recent News</div>
+        <div class="section-subtitle">Milestones &amp; Updates</div>
       </div>
       <div class="news-list">
         <div class="news-item">
-          <div class="news-date">04/26</div>
-          <div class="news-body"><span class="news-badge badge-accept">Accepted</span> <strong>BanHate</strong> accepted at <strong>ACL 2026</strong>! Detecting hate speech in code-switched Bangla-English text.</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">02/26</div>
-          <div class="news-body"><span class="news-badge badge-new">New</span> Preprint released — <a href="#">FrugalPrompt</a>: token-attribution for reducing LLM inference overhead without accuracy loss.</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">11/25</div>
-          <div class="news-body"><span class="news-badge badge-accept">Accepted</span> Paper on <strong>VLM corruption robustness</strong> accepted at <strong>WACV 2026</strong>.</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">12/24</div>
-          <div class="news-body"><span class="news-badge badge-award">🏆 Best Paper</span> "Transliteration Perturbations in Bangla" wins <strong>Best Paper Award</strong> at BLP @ IJCNLP-AACL 2024!</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">10/24</div>
-          <div class="news-body"><span class="news-badge badge-accept">Accepted</span> <a href="#">BanglaTLit</a> accepted at Findings of <strong>EMNLP 2024</strong>.</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">01/25</div>
-          <div class="news-body"><span class="news-badge badge-accept">Accepted</span> <a href="#">BanTH</a> accepted at Findings of <strong>NAACL 2025</strong>.</div>
-        </div>
-        <div class="news-item">
-          <div class="news-date">08/25</div>
-          <div class="news-body">🎓 Started PhD at the <strong>University of Utah</strong>, Kahlert School of Computing.</div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- EDUCATION -->
-    <section class="section" id="education">
-      <div class="section-header">
-        <div class="section-title">Education</div>
-      </div>
-      <div class="edu-list">
-
-        <div class="edu-item">
-          <div class="edu-years">2021<br/>—<br/>2025</div>
-          <div class="edu-body">
-            <div class="edu-degree">BSc in Computer Science &amp; Engineering</div>
-            <div class="edu-inst"><a href="https://www.iutoic-dhaka.edu/">Islamic University of Technology (IUT)</a></div>
-            <div class="edu-detail">
-              Graduated with First Class · CGPA: 3.70 / 4.00<br/>
-              Thesis: Enhancing Vision Language Corruption Robustness using Cross-Distribution & Prompted Denoisers
-            </div>
+          <div class="news-date">2026</div>
+          <div class="news-body">
+            <span class="news-badge badge-accept">Accepted</span> 
+            Our paper on <strong>VLM corruption robustness</strong> and cross-distribution denoisers was published at 
+            <strong>IEEE/CVF WACV 2026</strong>!
           </div>
         </div>
-
-        <div class="edu-item">
-          <div class="edu-years">2018<br/>—<br/>2020</div>
-          <div class="edu-body">
-            <div class="edu-degree">Higher Secondary Certificate &amp; Science</div>
-            <div class="edu-inst"><a href="https://ndc.edu.bd/">Notre Dame College</a></div>
-            <div class="edu-detail">
-              Grade · GPA: 5.00 / 5.00<br/>
-            </div>
+        <div class="news-item">
+          <div class="news-date">Oct 2025</div>
+          <div class="news-body">
+            <span class="news-badge badge-work">Industry</span> 
+            Joined <strong>Therap (BD) Ltd.</strong> as an Associate Software Engineer, QA, developing automated test frameworks with Playwright and Java.
           </div>
         </div>
-
+        <div class="news-item">
+          <div class="news-date">2025</div>
+          <div class="news-body">
+            <span class="news-badge badge-edu">Graduation</span> 
+            Graduated with First Class honors in <strong>BSc in Computer Science &amp; Engineering</strong> from 
+            <strong>Islamic University of Technology (IUT)</strong>.
+          </div>
+        </div>
+        <div class="news-item">
+          <div class="news-date">Aug 2024</div>
+          <div class="news-body">
+            <span class="news-badge badge-work">Internship</span> 
+            Completed Software Engineering Internship at <strong>Zara Zaman Technology</strong>, focusing on Core Banking Solutions and ATM/POS transaction verification.
+          </div>
+        </div>
       </div>
     </section>
 
@@ -923,154 +1399,122 @@ footer a {
     <section class="section" id="publications">
       <div class="section-header">
         <div class="section-title">Publications</div>
+        <div class="section-subtitle">Peer-Reviewed Papers &amp; Preprints</div>
       </div>
       <div class="pub-list">
 
-        <!-- PUB 1 -->
-        <div class="pub-item">
+        <!-- PUB 1: WACV 2026 -->
+        <article class="pub-item">
           <div class="pub-thumb">
-            <!-- Replace with: <img src="fig_vlsrb.jpg" alt="VLSRB figure" /> -->
             <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              VLSRB
+              <div class="thumb-icon">📄</div>
+              VLSRB / WACV
             </div>
           </div>
           <div class="pub-body">
             <div class="pub-venue">
-              <span class="pub-venue-name">WACV 2026</span>
+              <span class="pub-venue-name">IEEE/CVF WACV 2026</span>
+              <span class="pub-venue-status">Main Conference</span>
+              <span>Pages 5754–5765</span>
             </div>
-            <div class="pub-title">Enhancing Vision Language Corruption Robustness using Cross-Distribution &amp; Prompted Denoisers</div>
+            <h3 class="pub-title">Enhancing Vision Language Corruption Robustness using Cross-Distribution &amp; Prompted Denoisers</h3>
             <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a>Sadab Shiper</a>, <a>K. M. Rahiduzzaman Kiran</a>, <a>Md Farhan Ishmam</a>, <a>Md Azam Hossain</a>
-              , <a>Abu Raihan Mostofa Kamal</a>, <a>Md Hamjajul Ashmafee</a>
+              <strong>Sameer Shafayet Latif</strong>, Sadab Shiper, K. M. Rahiduzzaman Kiran, Md Farhan Ishmam, Md Azam Hossain, Abu Raihan Mostofa Kamal, Md Hamjajul Ashmafee
+            </div>
+            <div class="pub-note">
+              Introduces the VLSRB benchmark spanning 36 multimodal corruptions and a modular MoE-inspired routing denoiser yielding up to 5.5% overall accuracy gains.
             </div>
             <div class="pub-links">
-              <a class="pub-link" href="https://openaccess.thecvf.com/content/WACV2026/papers/Latif_Enhancing_Vision_Language_Corruption_Robustness_using_Cross-Distribution__Prompted_Denoisers_WACV_2026_paper.pdf" target="_blank">Paper</a>
-              <a class="pub-link" href="https://github.com/farhanishmam/VLMDenoising" target="_blank">Code</a>
+              <a class="pub-link" href="https://openaccess.thecvf.com/content/WACV2026/papers/Latif_Enhancing_Vision_Language_Corruption_Robustness_using_Cross-Distribution__Prompted_Denoisers_WACV_2026_paper.pdf" target="_blank">PDF (CVF)</a>
+              <a class="pub-link" href="https://doi.org/10.1109/WACV61042.2026.00558" target="_blank">DOI</a>
+              <a class="pub-link" href="https://github.com/farhanishmam/VLMDenoising" target="_blank">Code (GitHub)</a>
               <a class="pub-link" href="https://drive.google.com/file/d/1qwGamel7X5N0R3prL2zec34EmWkUhHd4/view" target="_blank">Poster</a>
               <a class="pub-link" href="https://www.youtube.com/watch?v=aoflhsRlwK4&feature=youtu.be" target="_blank">Video</a>
+              <button class="pub-toggle-btn" type="button" onclick="toggleDrawer('abs-wacv26', this)">Abstract ▾</button>
+              <button class="pub-toggle-btn" type="button" onclick="openBibtexModal('wacv26')">BibTeX ↗</button>
+            </div>
+
+            <!-- Expandable Abstract -->
+            <div id="abs-wacv26" class="pub-drawer pub-abstract-drawer">
+              <strong>Abstract</strong>
+              Modern Vision-Language Models (VLMs) suffer significant performance degradation under real-world corruptions. We introduce the Vision-Language System Robustness Benchmark (VLSRB) covering 36 multimodal corruptions (18 visual and 18 textual perturbations) to evaluate VLM resilience under challenging distributions. To mitigate these corruptions without costly retraining of foundational backbones, we propose a modular dual-stage framework integrating Corruption-Specific Visual Denoisers (CSVD) routed via a lightweight Visual Corruption Routing Network (VCRN) paired with a zero-shot prompt-guided LLM textual denoiser. Our approach achieves up to 5.5% overall accuracy improvements and up to 9% gains across targeted VQA benchmarks.
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-header">
+        <div class="section-title">Projects</div>
+        <div class="section-subtitle">Major Projects</div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="research">AI &amp; Research</button>
+        <button class="filter-btn" data-filter="qa">Software &amp; QA</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card" data-category="research">
+          <div>
+            <div class="project-header-row">
+              <div class="project-title">VLMDenoising &amp; VLSRB Benchmark</div>
+              <span class="project-category-badge cat-research">AI &amp; Research</span>
+            </div>
+            <div class="project-subtitle">Multimodal Corruption Robustness Framework</div>
+            <p class="project-desc">
+              Constructed a comprehensive corruption evaluation benchmark covering 36 multimodal noise types on VLMs. Designed an MoE-inspired Visual Corruption Routing Network (VCRN) that selects domain-specific denoisers dynamically alongside zero-shot textual reconstruction.
+            </p>
+          </div>
+          <div>
+            <div class="project-tags">
+              <span class="project-tag">PyTorch</span>
+              <span class="project-tag">Vision-Language</span>
+              <span class="project-tag">CLIP</span>
+              <span class="project-tag">LLMs</span>
+              <span class="project-tag">Benchmarking</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/farhanishmam/VLMDenoising" target="_blank">⌥ GitHub Repo ↗</a>
+              <a class="project-link" href="https://openaccess.thecvf.com/content/WACV2026/papers/Latif_Enhancing_Vision_Language_Corruption_Robustness_using_Cross-Distribution__Prompted_Denoisers_WACV_2026_paper.pdf" target="_blank">📄 Paper ↗</a>
             </div>
           </div>
         </div>
 
-        <!-- PUB 2 -->
-        <!-- <div class="pub-item">
-          <div class="pub-thumb">
-            <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              BanTH
+        <!-- PROJECT 2 -->
+        <div class="project-card" data-category="qa">
+          <div>
+            <div class="project-header-row">
+              <div class="project-title">Enterprise QA Automation Framework</div>
+              <span class="project-category-badge cat-qa">Software &amp; QA</span>
+            </div>
+            <div class="project-subtitle">Playwright + Java Test Automation Architecture</div>
+            <p class="project-desc">
+              Engineered modular End-to-End (E2E) and integration test suites using Playwright with Java. Implemented robust Page Object Models (POM), parallel test executors, auto-healing locators, and automated test reporting for mission-critical enterprise workflows.
+            </p>
+          </div>
+          <div>
+            <div class="project-tags">
+              <span class="project-tag">Java</span>
+              <span class="project-tag">Playwright</span>
+              <span class="project-tag">TestNG / JUnit</span>
+              <span class="project-tag">CI/CD</span>
+              <span class="project-tag">Regression Testing</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/SameerShafayet" target="_blank">⌥ GitHub Profile ↗</a>
+              <a class="project-link" href="#experience">Brief in Experience ↓</a>
             </div>
           </div>
-          <div class="pub-body">
-            <div class="pub-venue">
-              <span class="pub-venue-name">NAACL 2025</span>
-              <span style="font-size:0.65rem;color:var(--text-muted)">Findings</span>
-            </div>
-            <div class="pub-title">BanTH: A Benchmark for Bangla Temporal Reasoning in NLP</div>
-            <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a href="#">Co-Author A</a>, <a href="#">Co-Author B</a>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="#" target="_blank">Paper</a>
-              <a class="pub-link" href="#" target="_blank">Dataset</a>
-              <a class="pub-link" href="#" target="_blank">Code</a>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- PUB 3 -->
-        <!-- <div class="pub-item">
-          <div class="pub-thumb">
-            <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              BanglaTLit
-            </div>
-          </div>
-          <div class="pub-body">
-            <div class="pub-venue">
-              <span class="pub-venue-name">EMNLP 2024</span>
-              <span style="font-size:0.65rem;color:var(--text-muted)">Findings</span>
-            </div>
-            <div class="pub-title">BanglaTLit: Bangla Back-Transliteration at Scale</div>
-            <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a href="#">Co-Author A</a>, <a href="#">Co-Author B</a>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="#" target="_blank">Paper</a>
-              <a class="pub-link" href="#" target="_blank">Dataset</a>
-              <a class="pub-link" href="#" target="_blank">Code</a>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- PUB 4 -->
-        <!-- <div class="pub-item">
-          <div class="pub-thumb">
-            <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              VQA Survey
-            </div>
-          </div>
-          <div class="pub-body">
-            <div class="pub-venue">
-              <span class="pub-venue-name">Information Fusion 2024</span>
-            </div>
-            <div class="pub-title">A Comprehensive Survey on Visual Question Answering: From Attention to Transformers</div>
-            <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a href="#">Co-Author A</a>, <a href="#">Co-Author B</a>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="#" target="_blank">Paper</a>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- PUB 5 -->
-        <!-- <div class="pub-item">
-          <div class="pub-thumb">
-            <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              BLP 2024
-            </div>
-          </div>
-          <div class="pub-body">
-            <div class="pub-venue">
-              <span class="pub-venue-name">BLP @ IJCNLP-AACL 2024</span>
-              <span class="pub-award">🏆 Best Paper</span>
-            </div>
-            <div class="pub-title">Transliteration Perturbations in Bangla: Robustness of NLP Models Under Romanized Input</div>
-            <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a href="#">Co-Author A</a>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="#" target="_blank">Paper</a>
-              <a class="pub-link" href="#" target="_blank">Code</a>
-            </div>
-          </div>
-        </div> -->
-
-        <!-- PUB 6 -->
-        <!-- <div class="pub-item">
-          <div class="pub-thumb">
-            <div class="pub-thumb-placeholder">
-              <div class="thumb-icon">⬚</div>
-              VRB
-            </div>
-          </div>
-          <div class="pub-body">
-            <div class="pub-venue">
-              <span class="pub-venue-name">WACV 2025</span>
-            </div>
-            <div class="pub-title">Visual Robustness Benchmark for Vision-Question-Answering Models</div>
-            <div class="pub-authors">
-              <strong>Sameer Shafayet Latif</strong>, <a href="#">Co-Author A</a>, <a href="#">Co-Author B</a>
-            </div>
-            <div class="pub-links">
-              <a class="pub-link" href="#" target="_blank">arXiv</a>
-              <a class="pub-link" href="#" target="_blank">Paper</a>
-            </div>
-          </div>
-        </div> -->
+        </div>
 
       </div>
     </section>
@@ -1079,35 +1523,88 @@ footer a {
     <section class="section" id="experience">
       <div class="section-header">
         <div class="section-title">Experience</div>
+        <div class="section-subtitle">Industry &amp; Research Roles</div>
       </div>
       <div class="exp-list">
 
+        <!-- Role 1 -->
         <div class="exp-item">
-          <div class="exp-years">Oct 2025<br/>— now</div>
+          <div class="exp-years">Oct 2025<br/>— Present</div>
           <div>
             <div class="exp-role">Associate Software Engineer, QA</div>
-            <div class="exp-org"><a href="https://therapbd.com/">Therap (BD) Ltd.</a></div>
-            <div class="exp-desc">Manual testing, Automation framework using Playwright and JAVA</div>
+            <div class="exp-org"><a href="https://therapbd.com/" target="_blank">Therap (BD) Ltd.</a></div>
+            <div class="exp-desc">
+              Developing automation testing frameworks and ensuring rigorous quality standards for cloud-based healthcare service platforms.
+              <ul class="exp-bullets">
+                <li>Designed and automated scalable UI and API regression test suites using <strong>Playwright</strong> and <strong>Java</strong>.</li>
+                <li>Created reusable test utilities, cross-browser validation runs, and integrated test reports.</li>
+                <li>Performed manual exploratory testing, defect lifecycle tracking, and release sign-offs for enterprise features.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
+        <!-- Role 2 -->
         <div class="exp-item">
           <div class="exp-years">June 2024<br/>— Aug 2024</div>
           <div>
-            <div class="exp-role">Intern</div>
-            <div class="exp-org"><a href="https://www.zztlbd.com/">Zara Zaman Technology</a></div>
-            <div class="exp-desc">Core Banking Solution, ATM and POS operations & testing</div>
+            <div class="exp-role">Software Engineering Intern</div>
+            <div class="exp-org"><a href="https://www.zztlbd.com/" target="_blank">Zara Zaman Technology</a></div>
+            <div class="exp-desc">
+              Focused on fintech infrastructure, Core Banking Solutions (CBS), and ATM/POS operations.
+              <ul class="exp-bullets">
+                <li>Executed operational testing and verified transaction processing across ATM and POS switch networks.</li>
+                <li>Participated in systems analysis and integration testing for high-reliability core banking workflows.</li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        <!-- <div class="exp-item">
-          <div class="exp-years">2022<br/>— 2024</div>
+        <!-- Role 3 -->
+        <div class="exp-item">
+          <div class="exp-years">2023<br/>— 2025</div>
           <div>
-            <div class="exp-role">Undergraduate Research Assistant</div>
-            <div class="exp-org"><a href="#">Islamic University of Technology — CSE Department</a></div>
-            <div class="exp-desc">Conducted research in multimodal learning and Bangla NLP. Published at EMNLP, WACV, NAACL, and Information Fusion. Co-led the Penta Global research team.</div>
+            <div class="exp-role">Undergraduate Researcher</div>
+            <div class="exp-org"><a href="https://www.iutoic-dhaka.edu/" target="_blank">Islamic University of Technology (IUT)</a></div>
+            <div class="exp-desc">
+              Conducted thesis research in deep learning, Vision-Language robustness, and multimodal degradation mitigation, leading to an accepted paper at IEEE/CVF WACV 2026.
+            </div>
           </div>
-        </div> -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <div class="section-header">
+        <div class="section-title">Education</div>
+        <div class="section-subtitle">Academic Background</div>
+      </div>
+      <div class="edu-list">
+
+        <div class="edu-item">
+          <div class="edu-years">2021<br/>—<br/>2025</div>
+          <div class="edu-body">
+            <div class="edu-degree">BSc in Computer Science &amp; Engineering</div>
+            <div class="edu-inst"><a href="https://www.iutoic-dhaka.edu/" target="_blank">Islamic University of Technology (IUT)</a></div>
+            <div class="edu-detail">
+              <strong>Graduated with First Class</strong> · CGPA: <strong>3.70 / 4.00</strong><br/>
+              <em>Undergraduate Thesis:</em> Enhancing Vision Language Corruption Robustness using Cross-Distribution &amp; Prompted Denoisers (Accepted at WACV 2026).
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-item">
+          <div class="edu-years">2018<br/>—<br/>2020</div>
+          <div class="edu-body">
+            <div class="edu-degree">Higher Secondary Certificate (HSC) · Science</div>
+            <div class="edu-inst"><a href="https://ndc.edu.bd/" target="_blank">Notre Dame College, Dhaka</a></div>
+            <div class="edu-detail">
+              Graduated with <strong>GPA: 5.00 / 5.00</strong>
+            </div>
+          </div>
+        </div>
 
       </div>
     </section>
@@ -1116,15 +1613,19 @@ footer a {
     <section class="section" id="contact">
       <div class="section-header">
         <div class="section-title">Contact</div>
+        <div class="section-subtitle">Get In Touch</div>
       </div>
       <div class="contact-block">
         <p class="contact-intro">
-          I welcome research collaborations, discussions about my work, and opportunities in multimodal AI. The best way to reach me is by email.
+          I am always open to exploring research collaborations, discussions regarding Vision-Language Models, and new opportunities. Feel free to connect or drop an email.
         </p>
 
         <div class="contact-email-box">
-          <span class="label">Email</span>
-          sameershafayet [at] iut-dhaka [dot] edu
+          <div>
+            <span class="email-label">Primary Email</span>
+            <span>sameershafayet [at] iut-dhaka [dot] edu</span>
+          </div>
+          <button class="contact-email-copy" type="button" onclick="copyText('sameershafayet@iut-dhaka.edu', this)">Copy Address</button>
         </div>
 
         <br/>
@@ -1132,44 +1633,30 @@ footer a {
         <div class="contact-grid">
           <a class="contact-card" href="https://scholar.google.com/citations?user=vjOxS6sAAAAJ&hl=en" target="_blank">
             <span class="contact-card-icon">◎</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Scholar</div>
+            <div>
+              <div class="contact-card-label">Academic Profile</div>
               <div class="contact-card-value">Google Scholar</div>
             </div>
           </a>
           <a class="contact-card" href="https://github.com/SameerShafayet" target="_blank">
             <span class="contact-card-icon">⌥</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Code</div>
+            <div>
+              <div class="contact-card-label">Open Source</div>
               <div class="contact-card-value">GitHub</div>
             </div>
           </a>
-          <a class="contact-card" href="https://www.linkedin.com/in/sameer-shafayet-latif/" target="_blank">
+          <a class="contact-card" href="https://www.linkedin.com/in/sameer-shafayet-latif" target="_blank">
             <span class="contact-card-icon">▲</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Network</div>
+            <div>
+              <div class="contact-card-label">Professional</div>
               <div class="contact-card-value">LinkedIn</div>
             </div>
           </a>
-          <!-- <a class="contact-card" href="#" target="_blank">
-            <span class="contact-card-icon">✦</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Social</div>
-              <div class="contact-card-value">X / Twitter</div>
-            </div>
-          </a> -->
-          <!-- <a class="contact-card" href="#" target="_blank">
-            <span class="contact-card-icon">⊞</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Models</div>
-              <div class="contact-card-value">HuggingFace</div>
-            </div>
-          </a> -->
           <a class="contact-card" href="assets/Sameer_CV.pdf" target="_blank">
-            <span class="contact-card-icon">↓</span>
-            <div class="contact-card-text">
-              <div class="contact-card-label">Resume</div>
-              <div class="contact-card-value">CV</div>
+            <span class="contact-card-icon">📄</span>
+            <div>
+              <div class="contact-card-label">Curriculum Vitae</div>
+              <div class="contact-card-value">CV (PDF)</div>
             </div>
           </a>
         </div>
@@ -1182,31 +1669,33 @@ footer a {
 <!-- FOOTER -->
 <footer>
   <span>© 2026 Sameer Shafayet Latif</span>
+  <span><a href="#home">Back to top ↑</a></span>
 </footer>
 
 <script>
-  // Scroll-triggered fade-in
+  // Intersection Observer for section fade-in
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
       }
     });
-  }, { threshold: 0.05 });
+  }, { threshold: 0.04 });
 
   document.querySelectorAll('.section').forEach(el => observer.observe(el));
 
-  // Active nav link on scroll
+  // Active navigation highlight on scroll
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('.section[id]');
 
   const activateLink = () => {
     let current = '';
+    const scrollPos = window.scrollY + 100;
     sections.forEach(s => {
-      if (window.scrollY + 80 >= s.offsetTop) current = s.id;
+      if (scrollPos >= s.offsetTop) {
+        current = s.id;
+      }
     });
-    // map news to home
-    if (current === 'news') current = 'home';
     navLinks.forEach(a => {
       const href = a.getAttribute('href').replace('#','');
       a.classList.toggle('active', href === current);
@@ -1215,6 +1704,116 @@ footer a {
 
   window.addEventListener('scroll', activateLink, { passive: true });
   activateLink();
+
+  // Publication Abstract & BibTeX Drawer Toggles
+  function toggleDrawer(id, btn) {
+    const drawer = document.getElementById(id);
+    if (!drawer) return;
+    const isOpen = drawer.classList.contains('open');
+    // Close other drawers within the same publication
+    const parentPub = btn.closest('.pub-body');
+    if (parentPub) {
+      parentPub.querySelectorAll('.pub-drawer').forEach(d => {
+        if (d !== drawer) d.classList.remove('open');
+      });
+      parentPub.querySelectorAll('.pub-toggle-btn').forEach(b => {
+        if (b !== btn) b.classList.remove('active');
+      });
+    }
+    drawer.classList.toggle('open', !isOpen);
+    btn.classList.toggle('active', !isOpen);
+  }
+
+  // Generic text copy
+  function copyText(text, btn) {
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerText;
+      btn.innerText = 'Copied!';
+      setTimeout(() => {
+        btn.innerText = originalText;
+      }, 2000);
+    });
+  }
+
+  // BibTeX Database & Modal Handling
+  const bibtexEntries = {
+    'wacv26': `@inproceedings{latif2026enhancing,
+  title     = {Enhancing Vision Language Corruption Robustness using Cross-Distribution \\& Prompted Denoisers},
+  author    = {Latif, Sameer Shafayet and Shiper, Sadab and Kiran, K. M. Rahiduzzaman and Ishmam, Md Farhan and Hossain, Md Azam and Kamal, Abu Raihan Mostofa and Ashmafee, Md Hamjajul},
+  booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+  pages     = {5754--5765},
+  year      = {2026},
+  doi       = {10.1109/WACV61042.2026.00558}
+}`
+  };
+
+  function openBibtexModal(key) {
+    const code = bibtexEntries[key];
+    if (!code) return;
+    document.getElementById('modal-bibtex-code').textContent = code;
+    const modal = document.getElementById('bibtex-modal');
+    if (modal) modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBibtexModal(e) {
+    if (e && e.target !== e.currentTarget && !e.target.classList.contains('modal-close')) return;
+    const modal = document.getElementById('bibtex-modal');
+    if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeBibtexModal();
+  });
+
+  function copyModalBibtex(btn) {
+    const code = document.getElementById('modal-bibtex-code').textContent;
+    navigator.clipboard.writeText(code).then(() => {
+      const orig = btn.innerText;
+      btn.innerText = 'Copied!';
+      setTimeout(() => {
+        btn.innerText = orig;
+      }, 2000);
+    });
+  }
+
+  // Projects filtering logic
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      projectCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 </script>
+
+<!-- BIBTEX MODAL -->
+<div id="bibtex-modal" class="modal-overlay" onclick="closeBibtexModal(event)">
+  <div class="modal-card" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div class="modal-title">Cite this publication (BibTeX)</div>
+      <button class="modal-close" type="button" onclick="closeBibtexModal()" aria-label="Close modal">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-code-wrapper">
+        <button class="modal-copy-btn" type="button" onclick="copyModalBibtex(this)">Copy</button>
+        <pre><code id="modal-bibtex-code"></code></pre>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
